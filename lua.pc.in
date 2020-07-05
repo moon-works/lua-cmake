@@ -1,0 +1,26 @@
+# Major version of Lua
+V=@PROJECT_VERSION_MAJOR@.@PROJECT_VERSION_MINOR@
+
+# Release version of Lua
+R=@PROJECT_VERSION_MAJOR@.@PROJECT_VERSION_MINOR@.@PROJECT_VERSION_PATCH@
+
+prefix=@CMAKE_INSTALL_PREFIX@
+INSTALL_BIN=@CMAKE_INSTALL_FULL_BINDIR@
+INSTALL_INC=@CMAKE_INSTALL_FULL_INCLUDEDIR@/lua${V}
+INSTALL_LIB=@CMAKE_INSTALL_FULL_LIBDIR@
+INSTALL_MAN=${prefix}/man/man1
+
+INSTALL_LMOD=@CMAKE_INSTALL_FULL_DATADIR@/lua/${V}
+INSTALL_CMOD=@CMAKE_INSTALL_FULL_LIBDIR@/lua/${V}
+
+# canonical vars
+exec_prefix=${prefix}
+libdir=${INSTALL_LIB}
+includedir=${INSTALL_INC}
+
+Name: Lua
+Description: An Extensible Extension Language
+Version: ${R}
+Requires:
+Libs: -L${INSTALL_LIB} -llua${V}
+Cflags: -I${INSTALL_INC}
