@@ -1,0 +1,4 @@
+From: Azamat H. Hackimov <azamat.hackimov@gmail.com>
+Subject: [PATCH] t/lua-cmake/5.2
+
+CMake project for lua 5.2 branch
