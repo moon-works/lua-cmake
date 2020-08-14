@@ -10,17 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        - { cc: "gcc", cxx: "g++" }
-        - { cc: "clang", cxx: "clang++" }
+        config:
+          - { cc: "gcc", cxx: "g++" }
+          - { cc: "clang", cxx: "clang++" }
     steps:
       - name: Checkout
         uses: actions/checkout@v2.1.1
       - name: Install dependencies
         run: sudo apt-get install -y libreadline-dev
-      - name: Build with ${{ matrix.cc }} / ${{ matrix.cxx }}
+      - name: Build with ${{ matrix.config.cc }} / ${{ matrix.config.cxx }}
         env:
-          CC: ${{ matrix.cc }}
-          CXX: ${{ matrix.cxx }}
+          CC: ${{ matrix.config.cc }}
+          CXX: ${{ matrix.config.cxx }}
         run: |
           cmake -B cmake_build
           cmake --build cmake_build -j2 -v
