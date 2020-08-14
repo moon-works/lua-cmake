@@ -7,7 +7,8 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    # ubuntu-18.04 has broken libreadline-dev
+    runs-on: ubuntu-20.04
     strategy:
       matrix:
         config:
