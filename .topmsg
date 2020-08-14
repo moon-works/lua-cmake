@@ -1,0 +1,4 @@
+From: Azamat H. Hackimov <azamat.hackimov@gmail.com>
+Subject: [PATCH] t/github-actions
+
+Intermediate commit that enables Github Actions.
