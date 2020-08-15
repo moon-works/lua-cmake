@@ -1,4 +1,4 @@
-name: Create release
+name: release
 on:
   push:
     tags:
@@ -15,7 +15,7 @@ jobs:
         run: sudo apt-get install -y topgit
       - name: Create artefact
         run: |
-          tg populate --remote
+          tg remote --populate  origin
           tg patch | bzip2 > lua-cmake-${{ github.ref }}.patch.bz2
       - name: Create release
         id: create_release
