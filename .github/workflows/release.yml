@@ -16,7 +16,7 @@ jobs:
       - name: Create artefact
         run: |
           tg remote --populate  origin
-          tg patch | bzip2 > lua-cmake-${{ github.ref }}.patch.bz2
+          tg patch | bzip2 > lua-cmake-${GITHUB_REF##*/}.patch.bz2
       - name: Create release
         id: create_release
         uses: actions/create-release@v1.1.3
@@ -34,7 +34,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./lua-cmake-${{ github.ref }}.patch.bz2
-          asset_name: lua-cmake-${{ github.ref }}.patch.bz2
+          asset_path: ./lua-cmake-${GITHUB_REF##*/}.patch.bz2
+          asset_name: lua-cmake-${GITHUB_REF##*/}.patch.bz2
           asset_content_type: application/x-bzip
 
